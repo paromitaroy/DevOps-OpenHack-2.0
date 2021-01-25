@@ -3,7 +3,6 @@
 name: CI
 env: 
   poi_path: apis/poi/**
-  registry: pythonappacr.azurecr.io
   
 
 # Controls when the action will run. 
@@ -39,8 +38,16 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
-      - name: Azure Container Registry Login
-        run: docker login $registry -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.GITHUB_TOKEN }}
+     # - name: Azure Container Registry Login
+     #   run: docker login $registry -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.GITHUB_TOKEN }}
+        
+      -   name: 'Build and push image'
+          uses: azure/docker-login@v1
+          with:
+            login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+            username: ${{ secrets.REGISTRY_USERNAME }}
+            password: ${{ secrets.REGISTRY_PASSWORD }}
+
         
   
         
