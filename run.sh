@@ -3,15 +3,15 @@ declare -i duration=10
 declare hasUrl="" 
 declare endpoint 
 declare -i status200count=0 
-endpoint="https://<<your app service name>>-staging.azurewebsites.net/api/healthcheck/poi" 
+endpoint="https://pytestapp20.azurewebsites.net" 
 
 
 
 healthcheck() { 
-declare url=$1 
-result=$(curl -i $url 2>/dev/null | grep HTTP/2) 
-echo $result 
-} 
+  declare url=$1 
+  result=$(curl -i $url 2>/dev/null | grep HTTP/2) 
+  echo $result 
+}
 
 for i in {1..12} 
 
