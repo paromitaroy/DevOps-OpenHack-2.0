@@ -48,5 +48,5 @@ if  [ $status200count -gt 5 ]; then
 else 
  echo "API DOWN" 
  APISTATUS="Down" 
- exit 1; 
+# exit 1; 
 fi
