@@ -35,4 +35,6 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       - name : smoke test 
-        run : ./run.sh
+        run : |
+          chmod 700 run.sh 
+          ./run.sh
